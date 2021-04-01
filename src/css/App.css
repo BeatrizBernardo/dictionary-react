@@ -4,12 +4,9 @@
 29bb89
 e6dd3b
 */
-body {
-  background-color: #f4f4f4;
-}
 
 .App {
-  background-color: #381731;
+  background-color: #f4f4f4;
 }
 
 .App .App-header {
@@ -17,10 +14,11 @@ body {
   padding-top: 50px;
   text-align: center;
   font-family: "Pacifico", cursive;
+  background-color: #381731;
 }
 
 .App .title {
-  font-size: 100px;
+  font-size: 70px;
   color: #f4f4f4;
 }
 

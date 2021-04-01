@@ -1,0 +1,25 @@
+.Search {
+  color: yellowgreen;
+}
+
+.Search .search-form {
+  text-align: center;
+}
+
+.Search .search-field {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+}
+
+.Search .search-button {
+  margin-left: 10px;
+  display: inline;
+  line-height: 1.5;
+}
+
+.Search .search-button,
+.Search .search-field {
+  border: 2px solid #381731;
+  border-radius: 4px;
+}
