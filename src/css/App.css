@@ -1,0 +1,31 @@
+/*
+1e6f5c
+289672
+29bb89
+e6dd3b
+*/
+body {
+  background-color: #f4f4f4;
+}
+
+.App {
+  background-color: #381731;
+}
+
+.App .App-header {
+  display: block;
+  padding-top: 50px;
+  text-align: center;
+  font-family: "Pacifico", cursive;
+}
+
+.App .title {
+  font-size: 100px;
+  color: #f4f4f4;
+}
+
+.App .subtitle {
+  padding-top: 20px;
+  color: #f4f4f4;
+  padding-bottom: 70px;
+}
