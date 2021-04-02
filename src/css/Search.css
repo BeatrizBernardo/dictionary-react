@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.Search .loading {
+  padding-top: 50px;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
+
 .Search .search-form {
   text-align: center;
 }

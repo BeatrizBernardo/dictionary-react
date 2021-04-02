@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactLoading from "react-loading";
 import DisplaySearch from "./DisplaySearch.js";
 import "./css/Search.css";
 
@@ -42,13 +43,19 @@ export default function Search() {
       </div>
     );
   } else {
-    {
-      /** loading animation */
-    }
     return (
       <div className="Search">
         {form}
-        I'm loading here
+        <div className="container">
+          <div className="loading">
+            <ReactLoading
+              type="spinningBubbles"
+              color="#381731"
+              height={"5%"}
+              width={"5%"}
+            />
+          </div>
+        </div>
       </div>
     );
   }
