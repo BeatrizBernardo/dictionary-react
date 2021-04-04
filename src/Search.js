@@ -5,17 +5,15 @@ import "./css/Search.css";
 
 export default function Search() {
   const [data, setData] = useState(null);
-  const [dataTemp, setDataTemp] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
-    setData(dataTemp);
     setLoaded(true);
   }
 
   function getData(event) {
-    setDataTemp(event.target.value);
+    setData(event.target.value);
   }
 
   let form = (
@@ -48,7 +46,7 @@ export default function Search() {
         {form}
         <div className="container">
           <div className="loading">
-            <DualRing size={100} color="#381731" speed={3.5} />;
+            <DualRing size={100} color="#381731" speed={3.5} />
           </div>
         </div>
       </div>
