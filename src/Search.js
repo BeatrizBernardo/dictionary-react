@@ -2,18 +2,34 @@ import React, { useState } from "react";
 import DisplaySearch from "./DisplaySearch.js";
 import { DualRing } from "react-loading-io";
 import "./css/Search.css";
+import axios from "axios";
 
 export default function Search() {
-  const [data, setData] = useState(null);
+  const [word, setWord] = useState("");
+  const [meaning, setMeaning] = useState("");
   const [loaded, setLoaded] = useState(false);
+  let Url = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
 
   function handleSubmit(event) {
     event.preventDefault();
+    let apiUrl = `${Url}${word}`;
+    axios.get(apiUrl).then(function (response) {
+      console.log(response.data[0].meanings[0].definitions[0].synonyms);
+      setMeaning({
+        word: response.data[0].word,
+        partOfSpeech: response.data[0].meanings[0].partOfSpeech,
+        definition: response.data[0].meanings[0].definitions[0].definition,
+        example: response.data[0].meanings[0].definitions[0].example,
+        synonyms: response.data[0].meanings[0].definitions[0].synonyms,
+        audio: response.data[0].phonetics[0].audio,
+        text: response.data[0].phonetics[0].text,
+      });
+    });
     setLoaded(true);
   }
 
-  function getData(event) {
-    setData(event.target.value);
+  function getWord(event) {
+    setWord(event.target.value);
   }
 
   let form = (
@@ -24,7 +40,7 @@ export default function Search() {
           className="form-control search-field"
           id="inputSearch"
           placeholder="Search on dictionary..."
-          onChange={getData}
+          onChange={getWord}
         />
         <button className="btn search-button" type="submit">
           Search
@@ -37,7 +53,7 @@ export default function Search() {
     return (
       <div className="Search">
         {form}
-        <DisplaySearch data={data} />
+        <DisplaySearch meaning={meaning} />
       </div>
     );
   } else {
