@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ReactLoading from "react-loading";
 import DisplaySearch from "./DisplaySearch.js";
+import { DualRing } from "react-loading-io";
 import "./css/Search.css";
 
 export default function Search() {
@@ -48,12 +48,7 @@ export default function Search() {
         {form}
         <div className="container">
           <div className="loading">
-            <ReactLoading
-              type="spinningBubbles"
-              color="#381731"
-              height={"5%"}
-              width={"5%"}
-            />
+            <DualRing size={100} color="#381731" speed={3.5} />;
           </div>
         </div>
       </div>

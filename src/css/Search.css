@@ -4,9 +4,8 @@
 
 .Search .loading {
   padding-top: 50px;
-  position: relative;
-  margin: 0 auto;
-  display: block;
+  display: 0 auto;
+  text-align: center;
 }
 
 .Search .search-form {
