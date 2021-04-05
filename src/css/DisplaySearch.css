@@ -16,18 +16,6 @@
   font-size: 20px;
 }
 
-.DisplaySearch .sound {
-  text-decoration: none;
-  transition: all 200ms ease-in-out;
-  color: #b6a2b0;
-  font-size: 1.75rem;
-}
-
-.DisplaySearch .sound:hover {
-  cursor: pointer;
-  color: #663e5a;
-}
-
 .DisplaySearch .horizontalLine,
 .DisplaySearch .secondHorizontalLine {
   height: 5px;
