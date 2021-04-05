@@ -2,9 +2,30 @@
   font-family: "Abel", sans-serif;
 }
 
-.DisplaySearch .search {
+.DisplaySearch .word {
   padding-top: 30px;
   color: #381731;
+}
+
+.DisplaySearch .subtitle {
+  padding: 50px 0 0 0;
+  color: #381731;
+}
+
+.DisplaySearch p {
+  font-size: 20px;
+}
+
+.DisplaySearch .sound {
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
+  color: #b6a2b0;
+  font-size: 1.75rem;
+}
+
+.DisplaySearch .sound:hover {
+  cursor: pointer;
+  color: #663e5a;
 }
 
 .DisplaySearch .horizontalLine,

@@ -13,18 +13,26 @@ export default function Search() {
   function handleSubmit(event) {
     event.preventDefault();
     let apiUrl = `${Url}${word}`;
-    axios.get(apiUrl).then(function (response) {
-      setMeaning({
-        word: response.data[0].word,
-        partOfSpeech: response.data[0].meanings[0].partOfSpeech,
-        definition: response.data[0].meanings[0].definitions[0].definition,
-        example: response.data[0].meanings[0].definitions[0].example,
-        synonyms: response.data[0].meanings[0].definitions[0].synonyms,
-        audio: response.data[0].phonetics[0].audio,
-        text: response.data[0].phonetics[0].text,
+    axios
+      .get(apiUrl)
+      .then(function (response) {
+        setMeaning({
+          word: response.data[0].word,
+          partOfSpeech: response.data[0].meanings[0].partOfSpeech,
+          definition: response.data[0].meanings[0].definitions[0].definition,
+          example: response.data[0].meanings[0].definitions[0].example,
+          synonyms: response.data[0].meanings[0].definitions[0].synonyms,
+          audio: response.data[0].phonetics[0].audio,
+          text: response.data[0].phonetics[0].text,
+        });
+        setLoaded(true);
+      })
+      .catch(function (error) {
+        setLoaded(false);
+        alert(
+          "Sorry! Can't find the word that you are looking. Please try again!"
+        );
       });
-      setLoaded(true);
-    });
   }
 
   function getWord(event) {
