@@ -16,7 +16,7 @@ export default function DisplaySearch(props) {
       <hr className="secondHorizontalLine" />
 
       {props.meaning.synonyms.map((i) => (
-        <p>{props.meaning.synonyms[i]}</p>
+        <p key={i}>{i}</p>
       ))}
     </div>
   );

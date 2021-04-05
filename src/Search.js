@@ -14,7 +14,6 @@ export default function Search() {
     event.preventDefault();
     let apiUrl = `${Url}${word}`;
     axios.get(apiUrl).then(function (response) {
-      console.log(response.data[0].meanings[0].definitions[0].synonyms);
       setMeaning({
         word: response.data[0].word,
         partOfSpeech: response.data[0].meanings[0].partOfSpeech,
@@ -24,8 +23,8 @@ export default function Search() {
         audio: response.data[0].phonetics[0].audio,
         text: response.data[0].phonetics[0].text,
       });
+      setLoaded(true);
     });
-    setLoaded(true);
   }
 
   function getWord(event) {
