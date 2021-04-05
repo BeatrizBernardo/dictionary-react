@@ -1,0 +1,19 @@
+.Author .open-source {
+  text-align: center;
+  font-weight: bold;
+  color: #381731;
+  font-family: "Abel", sans-serif;
+  padding-top: 50px;
+  display: block;
+}
+
+.Author .open-source-links {
+  text-decoration: none;
+  transition: all 200ms ease-in-out;
+  color: #381731;
+}
+
+.Author .open-source-links:hover {
+  cursor: pointer;
+  color: #b6a2b0;
+}

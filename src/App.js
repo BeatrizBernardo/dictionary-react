@@ -1,3 +1,4 @@
+import Author from "./Author";
 import "./css/App.css";
 import Search from "./Search.js";
 
@@ -15,6 +16,7 @@ function App() {
       {/*search*/}
       <Search />
       {/*footer*/}
+      <Author />
     </div>
   );
 }
