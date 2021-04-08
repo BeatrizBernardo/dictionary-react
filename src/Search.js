@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function Search() {
   const [word, setWord] = useState("");
-  const [meaning, setMeaning] = useState("");
+  const [result, setResult] = useState(null);
   const [loaded, setLoaded] = useState(false);
   let Url = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
 
@@ -16,15 +16,8 @@ export default function Search() {
     axios
       .get(apiUrl)
       .then(function (response) {
-        setMeaning({
-          word: response.data[0].word,
-          partOfSpeech: response.data[0].meanings[0].partOfSpeech,
-          definition: response.data[0].meanings[0].definitions[0].definition,
-          example: response.data[0].meanings[0].definitions[0].example,
-          synonyms: response.data[0].meanings[0].definitions[0].synonyms,
-          audio: response.data[0].phonetics[0].audio,
-          text: response.data[0].phonetics[0].text,
-        });
+        setResult(response.data[0]);
+
         setLoaded(true);
       })
       .catch(function (error) {
@@ -60,7 +53,7 @@ export default function Search() {
     return (
       <div className="Search">
         {form}
-        <DisplaySearch meaning={meaning} />
+        <DisplaySearch result={result} />
       </div>
     );
   } else {

@@ -1,40 +1,24 @@
 import React from "react";
 import Audio from "./Audio.js";
+import PartOfSpeech from "./PartOfSpeech.js";
 import "./css/DisplaySearch.css";
 
 export default function DisplaySearch(props) {
   return (
     <div className="DisplaySearch">
-      <h1 className="word">{props.meaning.word}</h1>
+      <h1 className="word">{props.result.word}</h1>
       <hr className="horizontalLine" />
       <h3>
-        {props.meaning.partOfSpeech}
+        {props.result.phonetics[0].text}
         {"  "}•{"  "}
-        {props.meaning.text}
-        {"  "}•{"  "}
-        <Audio audio={props.meaning.audio} />
+        <Audio audio={props.result.phonetics[0].audio} />
       </h3>
-      <h2 className="subtitle">Definitions</h2>
-      <hr className="secondHorizontalLine" />
-      {props.meaning.definition && (
-        <p>
-          <strong>definition: </strong>
-          {props.meaning.definition}
-        </p>
-      )}
-      {props.meaning.example && (
-        <p>
-          <strong>example: </strong>
-          {props.meaning.example}
-        </p>
-      )}
-
-      <h2 className="subtitle">Synonyms</h2>
-      <hr className="secondHorizontalLine" />
-
-      {props.meaning.synonyms.map((i) => (
-        <p key={i}>{i}</p>
-      ))}
+      {props.result.meanings.map(function (meaning, index) {
+        console.log(meaning);
+        <div key={index}>
+          <PartOfSpeech meaning={meaning} />
+        </div>;
+      })}
     </div>
   );
 }

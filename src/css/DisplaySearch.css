@@ -7,17 +7,7 @@
   color: #381731;
 }
 
-.DisplaySearch .subtitle {
-  padding: 50px 0 0 0;
-  color: #381731;
-}
-
-.DisplaySearch p {
-  font-size: 20px;
-}
-
-.DisplaySearch .horizontalLine,
-.DisplaySearch .secondHorizontalLine {
+.DisplaySearch .horizontalLine {
   height: 5px;
   width: 50%;
   background-color: #381731;
@@ -25,8 +15,4 @@
   border: 1px solid #381731;
   margin: 0;
   display: inline-block;
-}
-
-.DisplaySearch .secondHorizontalLine {
-  height: 3px;
 }
