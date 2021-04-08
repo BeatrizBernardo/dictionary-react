@@ -1,18 +1,10 @@
-.PartOfSpeech .secondHorizontalLine {
-  height: 3px;
-  width: 50%;
-  background-color: #381731;
-  opacity: 0.5;
-  border: 1px solid #381731;
-  margin: 0;
-  display: inline-block;
+.PartOfSpeech {
+  border: 5px solid #b6a2b0;
+  border-radius: 10px;
+  margin: 20px 0 0 0;
 }
 
-.PartOfSpeech .subtitle {
-  padding: 50px 0 0 0;
-  color: #381731;
-}
-
-.PartOfSpeech p {
-  font-size: 20px;
+.PartOfSpeech .speech {
+  font-weight: 700;
+  padding: 20px 0 0 0;
 }

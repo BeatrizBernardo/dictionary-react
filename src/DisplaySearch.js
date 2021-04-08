@@ -14,10 +14,11 @@ export default function DisplaySearch(props) {
         <Audio audio={props.result.phonetics[0].audio} />
       </h3>
       {props.result.meanings.map(function (meaning, index) {
-        console.log(meaning);
-        <div key={index}>
-          <PartOfSpeech meaning={meaning} />
-        </div>;
+        return (
+          <div key={index}>
+            <PartOfSpeech meaning={meaning} />
+          </div>
+        );
       })}
     </div>
   );

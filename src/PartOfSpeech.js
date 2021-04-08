@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/PartOfSpeech.css";
+import Definitions from "./Definitions";
 
 export default function PartofSpeech(props) {
   /* setMeaning({
@@ -9,30 +10,16 @@ export default function PartofSpeech(props) {
             synonyms: meaning.data[0].meanings[0].definitions[0].synonyms,
           });*/
   return (
-    <div className="PartOfSpeech">
-      {console.log(props.meaning)}
-      <h2 className="subtitle">{props.meaning.partOfSpeech}</h2>
-      <h2 className="subtitle">Definitions</h2>
-      <hr className="secondHorizontalLine" />
-      {props.meaning.definition && (
-        <p>
-          <strong>definition: </strong>
-          {props.meaning.definition}
-        </p>
-      )}
-      {props.meaning.example && (
-        <p>
-          <strong>example: </strong>
-          {props.meaning.example}
-        </p>
-      )}
+    <div className="PartOfSpeech container">
+      <h2 className="speech">{props.meaning.partOfSpeech}</h2>
 
-      <h2 className="subtitle">Synonyms</h2>
-      <hr className="secondHorizontalLine" />
-
-      {props.meaning.synonyms.map((i) => (
-        <p key={i}>{i}</p>
-      ))}
+      {props.meaning.definitions.map(function (definition, index) {
+        return (
+          <div key={index}>
+            <Definitions definition={definition} />
+          </div>
+        );
+      })}
     </div>
   );
 }
