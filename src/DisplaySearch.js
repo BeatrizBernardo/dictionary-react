@@ -9,9 +9,30 @@ export default function DisplaySearch(props) {
       <h1 className="word">{props.result.word}</h1>
       <hr className="horizontalLine" />
       <h3>
-        {props.result.phonetics[0].text}
-        {"  "}•{"  "}
-        <Audio audio={props.result.phonetics[0].audio} />
+        {console.log(props.result)}
+
+        {props.result.phonetics[0].text !== undefined && (
+          <span>{props.result.phonetics[0].text}</span>
+        )}
+
+        {props.result.phonetics[0].text !== undefined &&
+          props.result.phonetics[0].audio && (
+            <span>
+              {"  "}•{"  "}
+            </span>
+          )}
+
+        {props.result.phonetics[0].audio && (
+          <Audio audio={props.result.phonetics[0].audio} />
+        )}
+      </h3>
+      <h3 className="origin">
+        {props.result.origin !== undefined && (
+          <span>
+            <strong>Origin:</strong>
+            {props.result.origin}
+          </span>
+        )}
       </h3>
       {props.result.meanings.map(function (meaning, index) {
         return (

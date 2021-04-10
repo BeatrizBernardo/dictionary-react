@@ -18,7 +18,8 @@
   vertical-align: middle;
 }
 
-.Search .search-button {
+.Search .search-button,
+.Search .dropdown {
   margin-left: 10px;
   display: inline;
   line-height: 1.5;
@@ -28,4 +29,9 @@
 .Search .search-field {
   border: 2px solid #381731;
   border-radius: 4px;
+}
+
+.Search .show > .dropdown-menu {
+  display: block;
+  position: absolute;
 }

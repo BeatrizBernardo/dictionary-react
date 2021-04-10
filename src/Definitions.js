@@ -27,9 +27,26 @@ export default function Definitions(props) {
           <table className="container">
             <tbody>
               <tr>
-                {props.definition.synonyms.map((syn) => (
-                  <td>
-                    <p key={syn}>{syn}</p>
+                {props.definition.synonyms.map((syn, index) => (
+                  <td key={index}>
+                    <p>{syn}</p>
+                  </td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
+      {props.definition.antonyms && (
+        <div>
+          <h2 className="subtitle">Antonyms</h2>
+          <hr className="secondHorizontalLine" />
+          <table className="container">
+            <tbody>
+              <tr>
+                {props.definition.antonyms.map((ant, index) => (
+                  <td key={index}>
+                    <p>{ant}</p>
                   </td>
                 ))}
               </tr>

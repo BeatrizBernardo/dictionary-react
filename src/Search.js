@@ -3,16 +3,36 @@ import DisplaySearch from "./DisplaySearch.js";
 import { DualRing } from "react-loading-io";
 import "./css/Search.css";
 import axios from "axios";
-
 export default function Search() {
+  const lang = [
+    { id: 0, cod: "en_US", language: "English (US)" },
+    { id: 1, cod: "hi", language: "Hindi" },
+    { id: 2, cod: "es", language: "Spanish" },
+    { id: 3, cod: "fr", language: "French" },
+    { id: 4, cod: "ja", language: "Japanese" },
+    { id: 5, cod: "ru", language: "Russian" },
+    { id: 6, cod: "en_GB", language: "English (UK)" },
+    { id: 7, cod: "de", language: "German" },
+    { id: 8, cod: "it", language: "Italian" },
+    { id: 9, cod: "ko", language: "Korean" },
+    { id: 10, cod: "pt-BR", language: "Brazilian Portuguese" },
+    { id: 11, cod: "ar", language: "Arabic" },
+    { id: 12, cod: "tr", language: "Turkisk" },
+  ];
   const [word, setWord] = useState("");
   const [result, setResult] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  let Url = "https://api.dictionaryapi.dev/api/v2/entries/en_US/";
+  const [language, setLanguage] = useState({
+    cod: lang[0].cod,
+    language: lang[0].language,
+  });
+
+  let Url = "https://api.dictionaryapi.dev/api/v2/entries";
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiUrl = `${Url}${word}`;
+    let apiUrl = `${Url}/${language.cod}/${word}`;
+    console.log(apiUrl);
     axios
       .get(apiUrl)
       .then(function (response) {
@@ -45,6 +65,35 @@ export default function Search() {
         <button className="btn search-button" type="submit">
           Search
         </button>
+        <div className="dropdown">
+          <button
+            className="btn search-button dropdown-toggle"
+            type="button"
+            id="dropdownMenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {language.language}
+          </button>
+          <div className="dropdown-menu show" aria-labelledby="dropdownMenu2">
+            {lang.map(function (lan) {
+              return (
+                <button
+                  className="dropdown-item"
+                  type="button"
+                  key={lan.id}
+                  onClick={function () {
+                    setLanguage({ cod: lan.cod, language: lan.language });
+                    console.log(lan.cod);
+                  }}
+                >
+                  {lan.language}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </form>
   );
