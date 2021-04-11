@@ -1,6 +1,7 @@
 import React from "react";
 import Audio from "./Audio.js";
 import PartOfSpeech from "./PartOfSpeech.js";
+import Photo from "./Photo.js";
 import "./css/DisplaySearch.css";
 
 export default function DisplaySearch(props) {
@@ -9,8 +10,6 @@ export default function DisplaySearch(props) {
       <h1 className="word">{props.result.word}</h1>
       <hr className="horizontalLine" />
       <h3>
-        {console.log(props.result)}
-
         {props.result.phonetics[0].text !== undefined && (
           <span>{props.result.phonetics[0].text}</span>
         )}
@@ -34,6 +33,9 @@ export default function DisplaySearch(props) {
           </span>
         )}
       </h3>
+
+      <Photo photo={props.photo} />
+
       {props.result.meanings.map(function (meaning, index) {
         return (
           <div key={index}>

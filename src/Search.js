@@ -20,6 +20,7 @@ export default function Search() {
     { id: 12, cod: "tr", language: "Turkisk" },
   ];
   const [word, setWord] = useState("");
+  const [photo, setPhoto] = useState("");
   const [result, setResult] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [language, setLanguage] = useState({
@@ -32,7 +33,10 @@ export default function Search() {
   function handleSubmit(event) {
     event.preventDefault();
     let apiUrl = `${Url}/${language.cod}/${word}`;
-    console.log(apiUrl);
+
+    let apiKey = "563492ad6f91700001000001fbdc42f6de70481dbd73d77f850a60f4";
+    let apiPexel = `https://api.pexels.com/v1/search?query=${word}&per_page=6`;
+
     axios
       .get(apiUrl)
       .then(function (response) {
@@ -45,6 +49,12 @@ export default function Search() {
         alert(
           "Sorry! Can't find the word that you are looking. Please try again!"
         );
+      });
+
+    axios
+      .get(apiPexel, { headers: { Authorization: `Bearer ${apiKey}` } })
+      .then(function (response) {
+        setPhoto(response.data.photos);
       });
   }
 
@@ -85,7 +95,6 @@ export default function Search() {
                   key={lan.id}
                   onClick={function () {
                     setLanguage({ cod: lan.cod, language: lan.language });
-                    console.log(lan.cod);
                   }}
                 >
                   {lan.language}
@@ -102,7 +111,7 @@ export default function Search() {
     return (
       <div className="Search">
         {form}
-        <DisplaySearch result={result} />
+        <DisplaySearch result={result} photo={photo} />
       </div>
     );
   } else {
