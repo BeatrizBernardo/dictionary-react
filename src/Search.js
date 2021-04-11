@@ -69,39 +69,30 @@ export default function Search() {
           type="text"
           className="form-control search-field"
           id="inputSearch"
-          placeholder="Search on dictionary..."
+          placeholder="Search on dictionary ..."
           onChange={getWord}
         />
         <button className="btn search-button" type="submit">
           Search
         </button>
-        <div className="dropdown">
-          <button
-            className="btn search-button dropdown-toggle"
-            type="button"
-            id="dropdownMenu2"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            {language.language}
-          </button>
-          <div className="dropdown-menu show" aria-labelledby="dropdownMenu2">
-            {lang.map(function (lan) {
-              return (
-                <button
-                  className="dropdown-item"
-                  type="button"
-                  key={lan.id}
-                  onClick={function () {
-                    setLanguage({ cod: lan.cod, language: lan.language });
-                  }}
-                >
-                  {lan.language}
-                </button>
-              );
-            })}
-          </div>
+        <button type="button" className="btn search-button" disabled>
+          {language.language}
+        </button>
+        <div>
+          {lang.map(function (lan) {
+            return (
+              <button
+                className="btn search-button languages"
+                type="button"
+                key={lan.id}
+                onClick={function () {
+                  setLanguage({ cod: lan.cod, language: lan.language });
+                }}
+              >
+                {lan.language}
+              </button>
+            );
+          })}
         </div>
       </div>
     </form>

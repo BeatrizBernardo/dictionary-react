@@ -31,7 +31,12 @@
   border-radius: 4px;
 }
 
-.Search .show > .dropdown-menu {
-  display: block;
-  position: absolute;
+.Search .languages {
+  margin-top: 10px;
+}
+
+.Search .languages:hover,
+.Search .languages:focus {
+  color: #b6a2b0;
+  background-color: #381731;
 }
