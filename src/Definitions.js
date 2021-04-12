@@ -24,34 +24,26 @@ export default function Definitions(props) {
         <div>
           <h2 className="subtitle">Synonyms</h2>
           <hr className="secondHorizontalLine" />
-          <table className="container">
-            <tbody>
-              <tr>
-                {props.definition.synonyms.map((syn, index) => (
-                  <td key={index}>
-                    <p>{syn}</p>
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
+          <div className="row container">
+            {props.definition.synonyms.map((syn, index) => (
+              <div className="col-4" key={index}>
+                <p>{syn}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
       {props.definition.antonyms && (
         <div>
           <h2 className="subtitle">Antonyms</h2>
           <hr className="secondHorizontalLine" />
-          <table className="container">
-            <tbody>
-              <tr>
-                {props.definition.antonyms.map((ant, index) => (
-                  <td key={index}>
-                    <p>{ant}</p>
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
+          <div className="row container">
+            {props.definition.antonyms.map((ant, index) => (
+              <div className="col-4" key={index}>
+                <p>{ant}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
