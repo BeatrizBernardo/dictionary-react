@@ -20,6 +20,8 @@ export default function Definitions(props) {
           {props.definition.example}
         </p>
       )}
+
+      {console.log(props.definition.synonyms)}
       {props.definition.synonyms && (
         <div>
           <h2 className="subtitle">Synonyms</h2>
