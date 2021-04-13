@@ -22,7 +22,7 @@ export default function Definitions(props) {
       )}
 
       {console.log(props.definition.synonyms)}
-      {props.definition.synonyms && (
+      {props.definition.synonyms && props.definition.synonyms.length > 0 && (
         <div>
           <h2 className="subtitle">Synonyms</h2>
           <hr className="secondHorizontalLine" />
@@ -35,7 +35,7 @@ export default function Definitions(props) {
           </div>
         </div>
       )}
-      {props.definition.antonyms && (
+      {props.definition.antonyms && props.definition.antonyms.length > 0 && (
         <div>
           <h2 className="subtitle">Antonyms</h2>
           <hr className="secondHorizontalLine" />
