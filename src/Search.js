@@ -75,24 +75,36 @@ export default function Search() {
         <button className="btn search-button" type="submit">
           Search
         </button>
-        <button type="button" className="btn search-button" disabled>
-          {language.language}
-        </button>
-        <div>
-          {lang.map(function (lan) {
-            return (
-              <button
-                className="btn search-button languages"
-                type="button"
-                key={lan.id}
-                onClick={function () {
-                  setLanguage({ cod: lan.cod, language: lan.language });
-                }}
-              >
-                {lan.language}
-              </button>
-            );
-          })}
+
+        <div className="dropdown">
+          <button
+            className="btn search-button dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {language.language}
+          </button>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            {lang.map(function (lan) {
+              return (
+                <li key={lan.id}>
+                  <a
+                    className="dropdown-item"
+                    href="/"
+                    value={lan.language}
+                    onClick={function (event) {
+                      event.preventDefault();
+                      setLanguage({ cod: lan.cod, language: lan.language });
+                    }}
+                  >
+                    {lan.language}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </form>
